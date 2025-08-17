@@ -27,7 +27,7 @@ jobs:
             libffi-dev libssl-dev autoconf automake \
             libtool pkg-config liblzma-dev zlib1g-dev \
             libgl1-mesa-dev libgles2-mesa-dev \
-            libtinfo5
+            libncurses-dev libtinfo5
 
           pip install --upgrade pip
           pip install cython buildozer
