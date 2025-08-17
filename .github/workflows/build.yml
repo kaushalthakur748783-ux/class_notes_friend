@@ -2,8 +2,7 @@ name: Build APK
 
 on:
   push:
-    branches:
-      - main
+    branches: [ "main" ]
   pull_request:
 
 jobs:
@@ -43,22 +42,23 @@ jobs:
           unzip -q commandlinetools-linux-9477386_latest.zip -d cmdline-tools
           mkdir -p cmdline-tools/latest
           mv cmdline-tools/cmdline-tools/* cmdline-tools/latest/
+
           yes | cmdline-tools/latest/bin/sdkmanager --licenses
 
           yes | cmdline-tools/latest/bin/sdkmanager \
             "platform-tools" \
             "platforms;android-33" \
-            "build-tools;33.0.2" \
+            "build-tools;34.0.0" \
             "ndk;21.4.7075529"
 
           echo "ANDROIDSDK=$HOME/android-sdk" >> $GITHUB_ENV
           echo "ANDROIDNDK=$HOME/android-sdk/ndk/21.4.7075529" >> $GITHUB_ENV
           echo "$HOME/android-sdk/platform-tools" >> $GITHUB_PATH
-          echo "$HOME/android-sdk/build-tools/33.0.2" >> $GITHUB_PATH
+          echo "$HOME/android-sdk/build-tools/34.0.0" >> $GITHUB_PATH
           echo "$HOME/android-sdk/cmdline-tools/latest/bin" >> $GITHUB_PATH
           echo "$HOME/android-sdk/ndk/21.4.7075529" >> $GITHUB_PATH
 
-      - name: Debug PATH
+      - name: Debug PATH (Check for aidl)
         run: |
           echo "PATH=$PATH"
           which python3 || echo "python3 not found"
