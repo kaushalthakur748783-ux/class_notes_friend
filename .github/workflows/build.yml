@@ -22,7 +22,6 @@ jobs:
     - name: Install dependencies
       run: |
         sudo apt-get update
-        # libncurses5 fix for Ubuntu 24.04 → install libncurses6 instead
         sudo apt-get install -y python3-pip python3-setuptools python3-wheel \
           git zip unzip openjdk-17-jdk libncurses6 libncursesw6
 
