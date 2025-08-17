@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04   # 👈 यहां latest की जगह 22.04 लिखा है
 
     steps:
       - name: Checkout repository
@@ -27,7 +27,7 @@ jobs:
             libffi-dev libssl-dev autoconf automake \
             libtool pkg-config liblzma-dev zlib1g-dev \
             libgl1-mesa-dev libgles2-mesa-dev \
-            libncurses-dev libtinfo5
+            libncurses5 libncursesw5   # ये 22.04 पर available हैं ✅
 
           pip install --upgrade pip
           pip install cython buildozer
