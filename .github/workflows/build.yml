@@ -3,8 +3,6 @@ name: Build Android APK
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
   workflow_dispatch:
 
 jobs:
@@ -29,7 +27,7 @@ jobs:
             libffi-dev libssl-dev autoconf automake \
             libtool pkg-config liblzma-dev zlib1g-dev \
             libgl1-mesa-dev libgles2-mesa-dev \
-            libncurses5-dev libtinfo5
+            libtinfo5
 
           pip install --upgrade pip
           pip install cython buildozer
